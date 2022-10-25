@@ -1,5 +1,6 @@
 package companion
 
+// https://www.baeldung.com/kotlin/companion-object
 interface Theme {
     fun someFunction(): String
 }
