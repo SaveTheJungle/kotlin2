@@ -1,3 +1,5 @@
+package model
+
 class HolaRequest(val name: String) {
     val greeting: String = "Hola"
     var prefix: String = "Senior"

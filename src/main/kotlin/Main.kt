@@ -1,6 +1,9 @@
 import companion.FactoryCreator
 import companion.FirstRelatedClass
 import companion.SecondRelatedClass
+import inheritance.Derived
+import model.HolaRequest
+import model.RandomRequest
 import kotlin.random.Random
 
 class Main {
@@ -10,6 +13,8 @@ class Main {
             printGreetings(args)
             printEmptyClass()
             printCompanions()
+            Derived.printDerived()
+            printNullSafety()
         }
     }
 }
@@ -40,4 +45,24 @@ fun printCompanions() {
 
     val factoryTwo: FactoryCreator = SecondRelatedClass.Factory
     println(factoryTwo.produce().someFunction())
+}
+
+fun printNullSafety() {
+    var s0: String
+    var s1: String?
+    // s0 = null // can not assign a null
+    s0 = "123"
+    s1 = null
+    println("'$s0'.length is ${s0.length}")
+    // println("$s1 ${s1.length}") // Nope. Can't do that
+
+    val listWithNulls: List<String?> = listOf("Kotlin", null)
+    for (item in listWithNulls) {
+        item?.let { print("$it ") } // prints Kotlin and ignores null
+    }
+    println()
+    for (item in listWithNulls) {
+        print("$item ")
+    }
+    println()
 }
