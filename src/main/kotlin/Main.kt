@@ -2,6 +2,8 @@ import companion.FactoryCreator
 import companion.FirstRelatedClass
 import companion.SecondRelatedClass
 import inheritance.Derived
+import kotlinx.coroutines.runBlocking
+import ktor.KtorExamples
 import model.HolaRequest
 import model.RandomRequest
 import kotlin.random.Random
@@ -15,6 +17,7 @@ class Main {
             printCompanions()
             Derived.printDerived()
             printNullSafety()
+            getAndPrintGoogle()
         }
     }
 }
@@ -65,4 +68,13 @@ fun printNullSafety() {
         print("$item ")
     }
     println()
+}
+
+fun getAndPrintGoogle() {
+    runBlocking {
+        println("GET google.ru")
+        println("===============================")
+        val text = KtorExamples().getGoogle()
+        println("===============================")
+    }
 }

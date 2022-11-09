@@ -12,7 +12,21 @@ repositories {
     mavenCentral()
 }
 
+val ktorVersion = "2.1.3"
+val logbackVersion = "1.4.4"
+
 dependencies {
+    /* ktor */
+    implementation("io.ktor:ktor-client-core:$ktorVersion")
+    implementation("io.ktor:ktor-client-cio:$ktorVersion")
+    implementation("io.ktor:ktor-client-logging:$ktorVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+
+    /* logging */
+    implementation("org.slf4j:slf4j-api:2.0.3")
+    implementation("ch.qos.logback:logback-core:$logbackVersion")
+    implementation("ch.qos.logback:logback-classic:$logbackVersion")
+
     testImplementation(kotlin("test"))
 }
 
